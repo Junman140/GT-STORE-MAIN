@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white shadow-sm sticky top-0 z-40">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center">
+      <div className="max-w-6xl mx-auto px-4 py-1.5 sm:py-3 flex items-center">
 
         {/* LEFT: Menu button */}
         <div className="flex items-center gap-3">
@@ -30,7 +30,7 @@ export default function Header() {
           >
             {/* hamburger icon */}
             <svg
-              className="h-6 w-6 text-brand-dark"
+              className="h-5 w-5 sm:h-6 sm:w-6 text-brand-dark"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -51,7 +51,7 @@ export default function Header() {
             <img
               src="/logo.jpg"
               alt="GT Store logo"
-              className="h-16 w-16 sm:h-14 sm:w-14 md:h-12 md:w-12 rounded-2xl shrink-0"
+              className="h-8 w-8 sm:h-12 sm:w-12 md:h-12 md:w-12 rounded-xl shrink-0"
             />
           </Link>
         </div>
@@ -70,8 +70,8 @@ export default function Header() {
             onClick={() => setOpen(false)}
             aria-hidden="true"
           />
-          <aside className="absolute left-0 top-0 bottom-0 w-72 bg-white shadow-lg p-4 flex flex-col">
-            <div className="flex items-center justify-between mb-4">
+          <aside className="absolute left-0 top-0 bottom-0 w-72 bg-white shadow-lg p-2 sm:p-4 flex flex-col">
+            <div className="flex items-center justify-between mb-2 sm:mb-4">
               <div className="text-lg font-semibold">Menu</div>
               <button
                 aria-label="Close menu"
@@ -94,25 +94,25 @@ export default function Header() {
               </button>
             </div>
 
-            <nav className="flex flex-col gap-2 overflow-y-auto flex-1">
-              <Link href="/explore" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Home</Link>
-              <Link href="/phones" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Phones</Link>
-              <Link href="/laptops" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Laptops</Link>
-              <Link href="/messages" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Messages</Link>
+            <nav className="flex flex-col gap-1 sm:gap-2 overflow-y-auto flex-1">
+              <Link href="/explore" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Home</Link>
+              <Link href="/phones" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Phones</Link>
+              <Link href="/laptops" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Laptops</Link>
+              <Link href="/messages" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Messages</Link>
               
               {/* Seller/Admin specific links */}
               {user && (user.role === 'seller' || user.role === 'admin') && (
                 <>
-                  <div className="border-t my-2"></div>
-                  <div className="text-xs text-gray-500 px-2 mb-1">
+                  <div className="border-t my-1 sm:my-2"></div>
+                  <div className="text-xs text-gray-500 px-2 mb-0.5 sm:mb-1">
                     {user.role === 'admin' ? 'Admin' : 'Seller'}
                   </div>
-                  <Link href="/seller-dashboard" className="py-2 px-2 rounded hover:bg-gray-50 font-medium" onClick={() => setOpen(false)}>
+                  <Link href="/seller-dashboard" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50 font-medium" onClick={() => setOpen(false)}>
                     {user.role === 'admin' ? 'Dashboard' : 'My Listings'}
                   </Link>
-                  <Link href="/create" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Create Listing</Link>
+                  <Link href="/create" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Create Listing</Link>
                   {user.role === 'admin' && (
-                    <Link href="/admin" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Admin Panel</Link>
+                    <Link href="/admin" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Admin Panel</Link>
                   )}
                 </>
               )}
@@ -120,26 +120,26 @@ export default function Header() {
               {/* Buyer link to become seller */}
               {user && user.role === 'reader' && (
                 <>
-                  <div className="border-t my-2"></div>
-                  <Link href="/apply-seller" className="py-2 px-2 rounded hover:bg-gray-50 text-brand-blue font-medium" onClick={() => setOpen(false)}>
+                  <div className="border-t my-1 sm:my-2"></div>
+                  <Link href="/apply-seller" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50 text-brand-blue font-medium" onClick={() => setOpen(false)}>
                     Become a Seller
                   </Link>
                 </>
               )}
               
-              <div className="border-t my-2"></div>
+              <div className="border-t my-1 sm:my-2"></div>
               
               {/* Support links */}
-              <div className="text-xs text-gray-500 px-2 mb-1">Support</div>
-              <Link href="/help" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Help Center</Link>
-              <Link href="/safety" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Safety Tips</Link>
-              <Link href="/terms" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Terms & Privacy</Link>
-              <Link href="/donate" className="py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Support Us</Link>
+              <div className="text-xs text-gray-500 px-2 mb-0.5 sm:mb-1">Support</div>
+              <Link href="/help" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Help Center</Link>
+              <Link href="/safety" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Safety Tips</Link>
+              <Link href="/terms" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Terms & Privacy</Link>
+              <Link href="/donate" className="py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50" onClick={() => setOpen(false)}>Support Us</Link>
               
-              <div className="border-t my-2"></div>
+              <div className="border-t my-1 sm:my-2"></div>
               
               {/* Socials */}
-              <div className="text-xs text-gray-500 px-2 mb-2">Connect</div>
+              <div className="text-xs text-gray-500 px-2 mb-1 sm:mb-2">Connect</div>
               <div className="flex items-center gap-2 px-2">
                 <a
                   href="https://x.com/keybasepi?s=21"
@@ -171,13 +171,13 @@ export default function Header() {
               </div>
             </nav>
 
-            <div className="mt-4 border-t pt-4 shrink-0">
-              <div className="text-xs text-gray-500 mb-2">Account</div>
+            <div className="mt-2 sm:mt-4 border-t pt-2 sm:pt-4 shrink-0">
+              <div className="text-xs text-gray-500 mb-1 sm:mb-2">Account</div>
               <PiLoginButton />
               {user && (
                 <button
                   onClick={handleLogout}
-                  className="mt-2 w-full text-left py-2 px-2 rounded hover:bg-gray-50 text-red-600 hover:text-red-700"
+                  className="mt-1 sm:mt-2 w-full text-left py-1.5 sm:py-2 px-2 rounded hover:bg-gray-50 text-red-600 hover:text-red-700"
                 >
                   Logout
                 </button>

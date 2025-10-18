@@ -135,7 +135,7 @@ export default function Home({ laptops, phones }) {
 
             {/* Segmented Control */}
             <div
-              className="inline-flex items-center rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm p-1 shadow-lg"
+              className="inline-flex items-center rounded-2xl sm:rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm p-0.5 sm:p-1 shadow-lg gap-0.5 sm:gap-1"
               role="tablist"
               aria-label="Select section"
               aria-orientation="horizontal"
@@ -157,7 +157,7 @@ export default function Home({ laptops, phones }) {
                 aria-selected={section === 'All'}
                 aria-controls="panel-all"
                 tabIndex={section === 'All' ? 0 : -1}
-                className={`min-w-[8rem] px-4 py-3 rounded-2xl text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 active:scale-95
+                className={`min-w-[5rem] sm:min-w-[8rem] px-2 sm:px-4 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 active:scale-95
                 ${section === 'All'
                   ? 'bg-white text-black shadow-lg'
                   : 'text-gray-300 hover:text-white hover:bg-white/10'}`}
@@ -171,7 +171,7 @@ export default function Home({ laptops, phones }) {
                 aria-selected={section === 'Phones'}
                 aria-controls="panel-phones"
                 tabIndex={section === 'Phones' ? 0 : -1}
-                className={`min-w-[8rem] px-4 py-3 rounded-2xl text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 active:scale-95
+                className={`min-w-[5rem] sm:min-w-[8rem] px-2 sm:px-4 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 active:scale-95
                 ${section === 'Phones'
                   ? 'bg-white text-black shadow-lg'
                   : 'text-gray-300 hover:text-white hover:bg-white/10'}`}
@@ -185,7 +185,7 @@ export default function Home({ laptops, phones }) {
                 aria-selected={section === 'Laptops'}
                 aria-controls="panel-laptops"
                 tabIndex={section === 'Laptops' ? 0 : -1}
-                className={`min-w-[8rem] px-4 py-3 rounded-2xl text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 active:scale-95
+                className={`min-w-[5rem] sm:min-w-[8rem] px-2 sm:px-4 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 active:scale-95
                 ${section === 'Laptops'
                   ? 'bg-white text-black shadow-lg'
                   : 'text-gray-300 hover:text-white hover:bg-white/10'}`}
