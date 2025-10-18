@@ -31,7 +31,7 @@ export function PiNetworkProvider({ children }) {
           // Initialize Pi SDK with authentication scopes to ensure payments work
           if (typeof window !== 'undefined' && window.Pi) {
             try {
-              await window.Pi.init({ version: "2.0", sandbox: true });
+              await window.Pi.init({ version: "2.0", sandbox: false });
               console.log('✅ Pi SDK initialized for existing authentication');
             } catch (initError) {
               console.warn('⚠️ Pi SDK initialization failed:', initError);
@@ -99,7 +99,7 @@ export function PiNetworkProvider({ children }) {
       console.log('🔐 Starting authentication flow...');
       
       // Initialize Pi SDK
-      await window.Pi.init({ version: "2.0", sandbox: true });
+      await window.Pi.init({ version: "2.0", sandbox: false });
       
       // Handle incomplete payments callback (following PIFRONTENDINTEGRATION.ts)
       const onIncompletePaymentFound = async (payment) => {
@@ -270,7 +270,7 @@ export function PiNetworkProvider({ children }) {
     // Check if Pi SDK is authenticated and has payments scope
     if (!window.Pi.isAuthenticated) {
       console.log('🔐 Pi SDK not authenticated, re-authenticating...');
-      await window.Pi.init({ version: "2.0", sandbox: true });
+      await window.Pi.init({ version: "2.0", sandbox: false });
       
       const auth = await window.Pi.authenticate(
         ["username", "payments", "wallet_address"],
