@@ -1,0 +1,209 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Laptop {
+  id                String   @id @default(cuid())
+  sellerId          String?
+  type              String
+  title             String
+  pricePi           Int
+  logisticsFee      Float    @default(5.0)
+  location          String
+  condition         String
+  year              Int?
+  images            String[]
+  isNew             Boolean  @default(false)
+  sellerName        String?
+  contactMethod     String?
+  contactHandle     String?
+  availability      String?
+  negotiable        Boolean  @default(true)
+  tradeIn           Boolean  @default(false)
+  delivery          String?
+  brand             String?
+  model             String?
+  processor         String?
+  ram               String?
+  storage           String?
+  graphics          String?
+  screenSize        String?
+  resolution        String?
+  operatingSystem   String?
+  color             String?
+  weight            String?
+  batteryLife       String?
+  scratches         String?
+  screenCondition   String?
+  keyboardCondition String?
+  trackpadCondition String?
+  ports             String?
+  charger           String?
+  repairHistory     String?
+  accessories       String[]
+  features          String[]
+  safetyFeatures    String[]
+  videoUrl          String?
+  docs              String[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  seller            User?    @relation("LaptopSeller", fields: [sellerId], references: [id])
+
+  @@map("laptops")
+}
+
+model Phone {
+  id              String   @id @default(cuid())
+  sellerId        String?
+  type            String
+  title           String
+  pricePi           Int
+  logisticsFee      Float    @default(5.0)
+  location          String
+  condition       String
+  year            Int?
+  images          String[]
+  isNew           Boolean  @default(false)
+  sellerName      String?
+  contactMethod   String?
+  contactHandle   String?
+  availability    String?
+  negotiable      Boolean  @default(true)
+  tradeIn         Boolean  @default(false)
+  delivery        String?
+  brand           String?
+  model           String?
+  storage         String?
+  color           String?
+  screenSize      String?
+  operatingSystem String?
+  processor       String?
+  ram             String?
+  batteryCapacity String?
+  cameraSpecs     String?
+  connectivity    String[]
+  scratches       String?
+  screenCondition String?
+  batteryHealth   String?
+  chargingPort    String?
+  speakers        String?
+  buttons         String?
+  waterDamage     String?
+  repairHistory   String?
+  accessories     String[]
+  features        String[]
+  safetyFeatures  String[]
+  videoUrl        String?
+  docs            String[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  seller          User?    @relation("PhoneSeller", fields: [sellerId], references: [id])
+
+  @@map("phones")
+}
+
+model User {
+  id                String             @id @default(cuid())
+  user_uid          String             @unique
+  piUsername        String?            @unique
+  from_address      String?
+  to_address        String?
+  role              String             @default("reader")
+  avatar            String?
+  bio               String?            @db.VarChar(500)
+  piAccessToken     String?
+  piAuthenticatedAt DateTime?
+  piAppId           String?
+  piReceivingEmail  Boolean            @default(false)
+  piCredentials     Json?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  receivedChats     Chat[]             @relation("ChatReceiver")
+  sentChats         Chat[]             @relation("ChatSender")
+  donations         Donation[]
+  laptops           Laptop[]           @relation("LaptopSeller")
+  receivedMessages  Message[]          @relation("ReceivedMessages")
+  sentMessages      Message[]          @relation("SentMessages")
+  phones            Phone[]            @relation("PhoneSeller")
+  sellerApplication SellerApplication?
+
+  @@map("users")
+}
+
+model SellerApplication {
+  id             String    @id @default(cuid())
+  userId         String    @unique
+  businessName   String
+  businessType   String
+  location       String
+  description    String
+  email          String
+  phone          String?
+  ownershipProof String[]
+  status         String    @default("pending")
+  reviewedBy     String?
+  reviewedAt     DateTime?
+  notes          String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("seller_applications")
+}
+
+model Donation {
+  id          String   @id @default(cuid())
+  userId      String
+  amount      Float
+  piPaymentId String   @unique
+  txid        String?
+  status      String   @default("pending")
+  memo        String?
+  metadata    Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@map("donations")
+}
+
+model Chat {
+  id            String    @id @default(cuid())
+  senderId      String
+  receiverId    String
+  listingType   String?
+  listingId     String?
+  lastMessage   String?
+  lastMessageAt DateTime?
+  unreadCount   Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  receiver      User      @relation("ChatReceiver", fields: [receiverId], references: [id])
+  sender        User      @relation("ChatSender", fields: [senderId], references: [id])
+  messages      Message[]
+
+  @@unique([senderId, receiverId, listingType, listingId])
+  @@map("chats")
+}
+
+model Message {
+  id          String   @id @default(cuid())
+  chatId      String
+  senderId    String
+  receiverId  String
+  content     String
+  messageType String   @default("text")
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  chat        Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  receiver    User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  sender      User     @relation("SentMessages", fields: [senderId], references: [id])
+
+  @@map("messages")
+}

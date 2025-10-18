@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Keep it simple, avoid @apply until Tailwind is confirmed wired. */
+html, body, #__next { height: 100%; }
+
+/* Equivalent of bg-white + text-gray-900 via raw CSS */
+body {
+  background-color: #ffffff;
+  color: #111827; /* Tailwind's gray-900 */
+}
+
+/* Equivalent of max-w-6xl mx-auto px-4 */
+.container {
+  max-width: 72rem;       /* 6xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;     /* px-4 */
+  padding-right: 1rem;
+}
+
+/* Carousel helpers */
+.snap-x { scroll-snap-type: x mandatory; }
+.snap-start { scroll-snap-align: start; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Landing page animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
