@@ -1,5 +1,5 @@
 import { piNetworkService } from '../../../../lib/pi-network-backend';
-import { prisma } from '../../../../lib/prisma';
+import { prisma } from '@/lib/prisma';
 
 // Helper function to send logistics details message
 async function sendLogisticsMessage(buyerId, sellerId, orderId, shippingDetails) {
