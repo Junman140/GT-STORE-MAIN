@@ -49,7 +49,7 @@ export default function Header() {
         <div className="flex-1 flex justify-center">
           <Link href="/" className="pointer-events-auto" aria-label="GT Store home">
             <img
-              src="/logo.jpg"
+              src="/gtstore.png"
               alt="GT Store logo"
               className="h-8 w-8 sm:h-12 sm:w-12 md:h-12 md:w-12 rounded-xl shrink-0"
             />
