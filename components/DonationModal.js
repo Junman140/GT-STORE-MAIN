@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { usePiNetwork } from '../contexts/PiNetworkContext';
+import { usePiNetwork } from '@/contexts/PiNetworkContext';
 
 export default function DonationModal({ isOpen, onClose, onSuccess }) {
   const { user, createPayment, isPaymentInProgress } = usePiNetwork();

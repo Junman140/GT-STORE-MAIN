@@ -1,7 +1,7 @@
 // components/PiLoginButton.js
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { usePiNetwork } from '../contexts/PiNetworkContext'
+import { usePiNetwork } from '@/contexts/PiNetworkContext'
 
 export default function PiLoginButton({ className = '' }) {
   const { user, isLoading, authenticate, logout } = usePiNetwork()

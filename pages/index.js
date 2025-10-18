@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { usePiNetwork } from '../contexts/PiNetworkContext'
+import { usePiNetwork } from '@/contexts/PiNetworkContext'
 import PiLoginButton from '@/components/PiLoginButton'
 
 export default function Landing() {

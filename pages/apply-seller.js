@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { usePiNetwork } from '../contexts/PiNetworkContext';
-import SellerApplicationForm from '../components/SellerApplicationForm';
+import { usePiNetwork } from '@/contexts/PiNetworkContext';
+import SellerApplicationForm from '@/components/SellerApplicationForm';
 import Head from 'next/head';
 
 export default function ApplySellerPage() {

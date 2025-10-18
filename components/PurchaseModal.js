@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { usePiNetwork } from '../contexts/PiNetworkContext';
+import { usePiNetwork } from '@/contexts/PiNetworkContext';
 
 export default function PurchaseModal({ isOpen, onClose, listing, seller }) {
   const { user, createPayment } = usePiNetwork();

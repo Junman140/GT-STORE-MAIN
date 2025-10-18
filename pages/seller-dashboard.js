@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { usePiNetwork } from '../contexts/PiNetworkContext';
+import { usePiNetwork } from '@/contexts/PiNetworkContext';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import ListingCard from '../components/ListingCard';
+import ListingCard from '@/components/ListingCard';
 
 export default function SellerDashboard() {
   const { user, isAuthenticated, isLoading } = usePiNetwork();

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { usePiNetwork } from '../contexts/PiNetworkContext';
+import { usePiNetwork } from '@/contexts/PiNetworkContext';
 
 export default function ChatModal({ isOpen, onClose, listing, seller }) {
   const { user } = usePiNetwork();

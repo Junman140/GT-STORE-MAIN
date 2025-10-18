@@ -2,8 +2,8 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePiNetwork } from '../contexts/PiNetworkContext'
-import PurchaseModal from './PurchaseModal'
+import { usePiNetwork } from '@/contexts/PiNetworkContext'
+import PurchaseModal from '@/components/PurchaseModal'
 
 export default function ListingCard({ item, href, seller }) {
   const { user, isAuthenticated } = usePiNetwork()

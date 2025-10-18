@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { usePiNetwork } from '../contexts/PiNetworkContext';
+import { usePiNetwork } from '@/contexts/PiNetworkContext';
 
 export default function AdminPanel() {
   const { user } = usePiNetwork();

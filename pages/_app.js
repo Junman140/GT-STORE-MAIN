@@ -4,7 +4,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import AuthGuard from '@/components/AuthGuard'
 import Script from 'next/script'
-import { PiNetworkProvider } from '../contexts/PiNetworkContext'
+import { PiNetworkProvider } from '@/contexts/PiNetworkContext'
 
 export default function App({ Component, pageProps, router }) {
   const hideChrome = Component?.hideChrome === true

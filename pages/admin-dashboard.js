@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { usePiNetwork } from '../contexts/PiNetworkContext';
+import { usePiNetwork } from '@/contexts/PiNetworkContext';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 

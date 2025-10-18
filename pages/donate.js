@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { usePiNetwork } from '../contexts/PiNetworkContext';
+import { usePiNetwork } from '@/contexts/PiNetworkContext';
 import DonationModal from '../components/DonationModal';
 import Head from 'next/head';
 

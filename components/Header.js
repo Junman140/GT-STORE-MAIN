@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import PiLoginButton from './PiLoginButton'
-import { usePiNetwork } from '../contexts/PiNetworkContext'
+import { usePiNetwork } from '@/contexts/PiNetworkContext'
 
 export default function Header() {
   const [open, setOpen] = useState(false)

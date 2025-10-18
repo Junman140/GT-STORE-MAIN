@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { usePiNetwork } from '../contexts/PiNetworkContext';
-import ChatModal from '../components/ChatModal';
+import { usePiNetwork } from '@/contexts/PiNetworkContext';
+import ChatModal from '@/components/ChatModal';
 import Head from 'next/head';
 
 export default function MessagesPage() {
