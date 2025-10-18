@@ -41,7 +41,7 @@ export default function Landing() {
             </h1>
             
             <p className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-              The ultimate destination for premium gadgets and electronics
+              The ultimate destination for gadgets and electronics
             </p>
 
             {/* Key Features */}
@@ -66,7 +66,7 @@ export default function Landing() {
                 <p className="text-gray-400 text-sm leading-relaxed">High-performance laptops for work, gaming, and creativity</p>
               </div>
 
-              <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
+              {/* <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
                 <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -74,7 +74,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-medium text-white mb-3">Secure Payments</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">Powered by Pi Network for safe, decentralized transactions</p>
-              </div>
+              </div> */}
             </div>
 
             {/* CTA Button */}
