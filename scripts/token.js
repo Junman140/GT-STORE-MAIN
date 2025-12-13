@@ -4,8 +4,8 @@ const server = new StellarSDK.Horizon.Server("https://api.testnet.minepi.com");
 const NETWORK_PASSPHRASE = "Pi Testnet";
 
 // prepare keypairs
-const issuerKeypair = StellarSDK.Keypair.fromSecret("SDPFJY4UWM6EVSG2Z3Z7PQJ5FMOGM37BFNKIXMOYPWSRX2OTDKSMVXGG"); // use actual secret key here
-const distributorKeypair = StellarSDK.Keypair.fromSecret("SDYRY5NSWJSMC6F7FZE3R6WCXTHSXXAQQN5WK7ALHDQSOQITDD7DGQA5"); // use actual secret key here
+const issuerKeypair = StellarSDK.Keypair.fromSecret(" "); // use actual secret key here
+const distributorKeypair = StellarSDK.Keypair.fromSecret(" "); // use actual secret key here
 
 // define a token
 // token code should be alphanumeric and up to 12 characters, case sensitive
